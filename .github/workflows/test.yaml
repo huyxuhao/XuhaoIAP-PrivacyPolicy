@@ -1,0 +1,38 @@
+name: CI
+
+on:
+    push:
+        branches:
+            - huyxuhao/test_github_action
+    pull_request:
+        branches:
+            - huyxuhao/test_github_action
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+            
+            - name: Run a one-line script
+                run: echo Hello, world!
+
+            - name: Run a multi-line script
+                run: |
+                    echo Add other actions to build,
+                    echo test, and deploy your project.
+
+            - name: Set up Node.js
+                uses: actions/setup-node@v2
+                with:
+                    node-version: 20
+
+            - name: Install dependencies
+                run: npm install
+
+            - name: Build project
+                run: npm run build
+
+            - name: Run tests
+                run: npm test
