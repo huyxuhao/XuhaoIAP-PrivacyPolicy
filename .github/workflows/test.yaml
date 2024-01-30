@@ -11,7 +11,7 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
-
         steps:
+            - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
             - name: Check disk space
-            run: df -h
+            - run: df -h
